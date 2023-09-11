@@ -38,7 +38,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
-        "https://api.themoviedb.org/3/movie/popular?api_key=53208bbbe918239e53dd4f9602cf91b5&page=1"
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=1`
       );
       const data = await response.json();
       setMovies(data.results);
