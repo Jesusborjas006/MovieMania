@@ -1,8 +1,40 @@
 import { useEffect, useState } from "react";
+import Movie from "../components/Movie";
+
+type MovieData = {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}[];
 
 const Home = () => {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState<MovieData | []>([]);
   console.log(movies);
+
+  const movieElements = movies.map((movie) => (
+    <Movie
+      key={movie.id}
+      adult={movie.adult}
+      backdropImg={movie.backdrop_path}
+      genreIDs={movie.genre_ids}
+      id={movie.id}
+      language={movie.original_language}
+      overview={movie.overview}
+      posterImg={movie.poster_path}
+      title={movie.title}
+    />
+  ));
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -15,7 +47,7 @@ const Home = () => {
     fetchMovies();
   }, []);
 
-  return <main></main>;
+  return <main>{movieElements}</main>;
 };
 
 export default Home;
