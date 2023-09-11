@@ -1,23 +1,7 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import Pagination from "../components/pagination";
-
-type MovieData = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}[];
+import MovieData from "../types";
 
 const Home = () => {
   const [movies, setMovies] = useState<MovieData | []>([]);
