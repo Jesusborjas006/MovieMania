@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import Pagination from "../components/pagination";
 
 type MovieData = {
   adult: boolean;
@@ -20,6 +21,7 @@ type MovieData = {
 
 const Home = () => {
   const [movies, setMovies] = useState<MovieData | []>([]);
+  const [pageNum, setPageNum] = useState(1);
 
   const movieElements = movies.map((movie) => (
     <Movie
@@ -38,17 +40,18 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=1`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${pageNum}`
       );
       const data = await response.json();
       setMovies(data.results);
     };
     fetchMovies();
-  }, []);
+  }, [pageNum]);
 
   return (
     <main className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
       {movieElements}
+      <Pagination pageNum={pageNum} setPageNum={setPageNum}/>
     </main>
   );
 };
