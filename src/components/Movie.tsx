@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type MovieProps = {
   key: number;
   adult: boolean;
@@ -14,6 +16,7 @@ type MovieProps = {
   // video: boolean;
   // vote_average: number;
   // vote_count: number;
+  getSpecificMovie: (id: number) => number;
 };
 
 const Movie = ({
@@ -25,16 +28,21 @@ const Movie = ({
   overview,
   posterImg,
   title,
+  getSpecificMovie,
 }: MovieProps) => {
   return (
-    <div className="xl:text-lg">
+    <Link
+      to={`/${id}`}
+      className="xl:text-lg cursor-pointer"
+      onClick={() => getSpecificMovie(id)}
+    >
       <img
         className="rounded-md mb-2"
         src={`http://image.tmdb.org/t/p/w500/${posterImg}`}
         alt={title}
       />
       <h2>{title}</h2>
-    </div>
+    </Link>
   );
 };
 

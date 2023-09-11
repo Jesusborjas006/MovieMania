@@ -7,6 +7,11 @@ const Home = () => {
   const [movies, setMovies] = useState<MovieData | []>([]);
   const [pageNum, setPageNum] = useState(1);
 
+  const getSpecificMovie = (id: number) => {
+    console.log(id);
+    return id;
+  };
+
   const movieElements = movies.map((movie) => (
     <Movie
       key={movie.id}
@@ -18,6 +23,7 @@ const Home = () => {
       overview={movie.overview}
       posterImg={movie.poster_path}
       title={movie.title}
+      getSpecificMovie={getSpecificMovie}
     />
   ));
 
