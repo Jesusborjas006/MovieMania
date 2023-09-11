@@ -3,14 +3,15 @@ import Movie from "../components/Movie";
 import Pagination from "../components/pagination";
 import MovieData from "../types";
 
-const Home = () => {
-  const [movies, setMovies] = useState<MovieData | []>([]);
-  const [pageNum, setPageNum] = useState(1);
 
-  const getSpecificMovie = (id: number) => {
-    console.log(id);
-    return id;
-  };
+type HomeProps = {
+  movies: MovieData
+  setMovies: React.Dispatch<React.SetStateAction<MovieData | []>>
+  setSelectedMovie: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const Home = ({ movies, setMovies, setSelectedMovie }: HomeProps) => {
+  const [pageNum, setPageNum] = useState(1);
 
   const movieElements = movies.map((movie) => (
     <Movie
@@ -23,7 +24,7 @@ const Home = () => {
       overview={movie.overview}
       posterImg={movie.poster_path}
       title={movie.title}
-      getSpecificMovie={getSpecificMovie}
+      setSelectedMovie={setSelectedMovie}
     />
   ));
 
@@ -36,7 +37,7 @@ const Home = () => {
       setMovies(data.results);
     };
     fetchMovies();
-  }, [pageNum]);
+  }, [pageNum, setMovies]);
 
   return (
     <>

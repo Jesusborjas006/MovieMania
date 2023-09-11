@@ -16,7 +16,7 @@ type MovieProps = {
   // video: boolean;
   // vote_average: number;
   // vote_count: number;
-  getSpecificMovie: (id: number) => number;
+  setSelectedMovie: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Movie = ({
@@ -28,13 +28,13 @@ const Movie = ({
   overview,
   posterImg,
   title,
-  getSpecificMovie,
+  setSelectedMovie
 }: MovieProps) => {
   return (
     <Link
       to={`/${id}`}
       className="xl:text-lg cursor-pointer"
-      onClick={() => getSpecificMovie(id)}
+      onClick={() => setSelectedMovie(id)}
     >
       <img
         className="rounded-md mb-2"
