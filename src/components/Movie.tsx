@@ -27,8 +27,12 @@ const Movie = ({
   title,
 }: MovieProps) => {
   return (
-    <div>
-      <img src={`http://image.tmdb.org/t/p/w500/${posterImg}`} alt={title} />
+    <div className="xl:text-lg">
+      <img
+        className="rounded-md mb-2"
+        src={`http://image.tmdb.org/t/p/w500/${posterImg}`}
+        alt={title}
+      />
       <h2>{title}</h2>
     </div>
   );

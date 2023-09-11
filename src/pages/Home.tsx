@@ -20,7 +20,6 @@ type MovieData = {
 
 const Home = () => {
   const [movies, setMovies] = useState<MovieData | []>([]);
-  console.log(movies);
 
   const movieElements = movies.map((movie) => (
     <Movie
@@ -47,7 +46,11 @@ const Home = () => {
     fetchMovies();
   }, []);
 
-  return <main>{movieElements}</main>;
+  return (
+    <main className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
+      {movieElements}
+    </main>
+  );
 };
 
 export default Home;

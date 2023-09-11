@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 function App() {
   return (
-    <div className="max-w-[1650px] py-5 px-10 mx-auto">
+    <div className="max-w-[1650px] py-5 px-6 md:px-10 mx-auto">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
