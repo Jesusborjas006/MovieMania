@@ -10,24 +10,24 @@ const Details = ({ selectedMovie }: DetailsProps) => {
     null
   );
 
+  const endpoint = window.location.pathname;
+
   const productionCompanies = movieDetails?.production_companies
     .map((company) => {
       return company.name;
     })
     .join(", ");
 
-  console.log(productionCompanies);
-
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${selectedMovie}?api_key=${process.env.REACT_APP_API_KEY}`
+        `https://api.themoviedb.org/3/movie/${endpoint}?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const data = await response.json();
       setMovieDetails(data);
     };
     fetchMovie();
-  }, [selectedMovie]);
+  }, [selectedMovie, endpoint]);
 
   return (
     <>
