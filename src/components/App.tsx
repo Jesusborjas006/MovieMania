@@ -11,7 +11,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(1);
 
   return (
-    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
+    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto ">
       <Navbar />
       <Routes>
         <Route
@@ -27,7 +27,7 @@ function App() {
         <Route path="/shows" element={<Shows />} />
         <Route
           path="/:id"
-          element={<Details movies={movies} selectedMovie={selectedMovie} />}
+          element={<Details selectedMovie={selectedMovie} />}
         />
       </Routes>
     </div>
