@@ -9,6 +9,7 @@ import MovieData from "../types";
 function App() {
   const [movies, setMovies] = useState<MovieData | []>([]);
   const [selectedMovie, setSelectedMovie] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto ">
@@ -21,13 +22,24 @@ function App() {
               movies={movies}
               setMovies={setMovies}
               setSelectedMovie={setSelectedMovie}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
             />
           }
         />
-        <Route path="/shows" element={<Shows />} />
+        <Route
+          path="/shows"
+          element={<Shows isLoading={isLoading} setIsLoading={setIsLoading} />}
+        />
         <Route
           path="/:id"
-          element={<Details selectedMovie={selectedMovie} />}
+          element={
+            <Details
+              selectedMovie={selectedMovie}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         />
       </Routes>
     </div>
