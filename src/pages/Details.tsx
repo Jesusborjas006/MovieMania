@@ -58,6 +58,14 @@ const Details = ({ selectedMovie }: DetailsProps) => {
   );
   console.log(movieDetails);
 
+  const productionCompanies = movieDetails?.production_companies
+    .map((company) => {
+      return company.name;
+    })
+    .join(", ");
+
+  console.log(productionCompanies);
+
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(
@@ -71,28 +79,30 @@ const Details = ({ selectedMovie }: DetailsProps) => {
 
   return (
     <>
-      <div className="flex mt-20 gap-x-20 items-center">
+      <div className="flex flex-col mt-20 gap-x-20 items-center">
         <img
-          className="w-[400px]"
+          className="w-full mb-5"
           src={`https://image.tmdb.org/t/p/original/${movieDetails?.poster_path}`}
           alt={movieDetails?.title}
         />
         <div>
-          <div>
-            <h3>{movieDetails?.title}</h3>
-            <p>"{movieDetails?.tagline}"</p>
+          <div className="space-y-4">
+            <h3 className="text-2xl text-center font-bold ">
+              {movieDetails?.title}
+            </h3>
+            <p className="text-center">"{movieDetails?.tagline}"</p>
             <p>{movieDetails?.vote_average.toFixed(1)} / 10</p>
             <p>Released Date: {movieDetails?.release_date}</p>
             <p>{movieDetails?.overview}</p>
           </div>
-          <div>
-            <h4>More Info</h4>
+          <div className="space-y-4 mt-16 text-center">
+            <h4 className="text-xl font-semibold text-center">More Info</h4>
             <p>Budget: ${movieDetails?.budget.toLocaleString()}</p>
             <p>Revenue: ${movieDetails?.revenue.toLocaleString()}</p>
             <p>Runtime: {movieDetails?.runtime} minutes</p>
             <p>Status: {movieDetails?.status}</p>
             <h4>Production Companies</h4>
-            <p></p>
+            <p>{productionCompanies}</p>
           </div>
         </div>
       </div>
