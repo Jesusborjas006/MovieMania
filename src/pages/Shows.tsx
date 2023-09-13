@@ -5,11 +5,12 @@ import Show from "../components/Show";
 import Loading from "../components/Loading";
 
 type ShowProps = {
+  setSelectedShowID: React.Dispatch<React.SetStateAction<number>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Shows = ({ isLoading, setIsLoading }: ShowProps) => {
+const Shows = ({ setSelectedShowID, isLoading, setIsLoading }: ShowProps) => {
   const [shows, setShows] = useState<ShowData | []>([]);
   const [pageNum, setPageNum] = useState(1);
 
@@ -19,6 +20,7 @@ const Shows = ({ isLoading, setIsLoading }: ShowProps) => {
       key={show.id}
       name={show.name}
       posterImg={show.poster_path}
+      setSelectedShowID={setSelectedShowID}
     />
   ));
 

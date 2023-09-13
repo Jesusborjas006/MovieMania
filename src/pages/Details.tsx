@@ -6,12 +6,20 @@ type DetailsProps = {
   selectedMovie: number;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  type: string;
 };
 
-const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
+const Details = ({
+  selectedMovie,
+  isLoading,
+  setIsLoading,
+  type,
+}: DetailsProps) => {
   const [movieDetails, setMovieDetails] = useState<MovieDetailsType | null>(
     null
   );
+
+  console.log(movieDetails);
 
   const endpoint = window.location.pathname;
 
@@ -32,7 +40,7 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
       setIsLoading(false);
     };
     fetchMovie();
-  }, [selectedMovie, endpoint]);
+  }, [selectedMovie, endpoint, setIsLoading]);
 
   return (
     <>

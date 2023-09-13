@@ -28,7 +28,7 @@ const Movie = ({
   overview,
   posterImg,
   title,
-  setSelectedMovie
+  setSelectedMovie,
 }: MovieProps) => {
   return (
     <Link
