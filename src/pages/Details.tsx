@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MovieDetailsType } from "../types";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 type DetailsProps = {
   selectedMovie: number;
@@ -36,11 +37,12 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row mt-20 gap-x-16 items-center">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <Link to="/">Go Back</Link>
+          <div className="flex flex-col md:flex-row mt-16 gap-x-16 items-center relative">
             <img
               className="w-full sm:w-[80%] md:w-[300px] lg:w-[450px] mb-5"
               src={`https://image.tmdb.org/t/p/original/${movieDetails?.poster_path}`}
@@ -79,9 +81,9 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
                 <p>Production Companies: {productionCompanies}</p>
               </div>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
