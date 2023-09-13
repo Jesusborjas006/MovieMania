@@ -2,19 +2,9 @@ import { Link } from "react-router-dom";
 
 type ShowProps = {
   key: number;
-  // backdropImg: string;
-  // first_air_data: string;
-  // genre_ids: number[];
   id: number;
   name: string;
-  // original_country: string[];
-  // original_language: string;
-  // original_name: string;
-  // overview: string;
-  // popularity: number;
   posterImg: string;
-  // vote_average: number;
-  // vote_count: number;
   setSelectedShowID: React.Dispatch<React.SetStateAction<number>>;
 };
 
