@@ -6,20 +6,12 @@ type DetailsProps = {
   selectedMovie: number;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  type: string;
 };
 
-const Details = ({
-  selectedMovie,
-  isLoading,
-  setIsLoading,
-  type,
-}: DetailsProps) => {
+const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
   const [movieDetails, setMovieDetails] = useState<MovieDetailsType | null>(
     null
   );
-
-  console.log(movieDetails);
 
   const endpoint = window.location.pathname;
 
@@ -59,7 +51,9 @@ const Details = ({
                 <h3 className="text-2xl text-center font-bold ">
                   {movieDetails?.title}
                 </h3>
-                <p className="text-center">"{movieDetails?.tagline}"</p>
+                {movieDetails?.tagline && (
+                  <p className="text-center">"{movieDetails?.tagline}"</p>
+                )}
                 <p>{movieDetails?.vote_average.toFixed(1)} / 10</p>
                 <p>Released Date: {movieDetails?.release_date}</p>
                 <p>{movieDetails?.overview}</p>

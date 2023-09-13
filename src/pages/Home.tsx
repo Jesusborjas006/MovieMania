@@ -24,12 +24,7 @@ const Home = ({
   const movieElements = movies.map((movie) => (
     <Movie
       key={movie.id}
-      adult={movie.adult}
-      backdropImg={movie.backdrop_path}
-      genreIDs={movie.genre_ids}
       id={movie.id}
-      language={movie.original_language}
-      overview={movie.overview}
       posterImg={movie.poster_path}
       title={movie.title}
       setSelectedMovie={setSelectedMovie}

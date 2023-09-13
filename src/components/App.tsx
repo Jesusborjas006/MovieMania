@@ -10,11 +10,8 @@ import ShowDetails from "../pages/ShowDetails";
 function App() {
   const [movies, setMovies] = useState<MovieData | []>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
-  const [selectedShowID, setSelectedShowID] = useState(0);
+  const [, setSelectedShowID] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [type, setType] = useState("movies");
-
-  // console.log(selectedShowID);
 
   return (
     <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto ">
@@ -49,14 +46,16 @@ function App() {
               selectedMovie={selectedMovie}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
-              type={type}
             />
           }
         />
         <Route
           path="/shows/:id"
           element={
-            <ShowDetails isLoading={isLoading} setIsLoading={setIsLoading} />
+            <ShowDetails
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
           }
         />
       </Routes>

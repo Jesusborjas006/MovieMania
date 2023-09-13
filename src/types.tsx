@@ -79,4 +79,62 @@ export type MovieDetailsType = {
   vote_count: number;
 };
 
+export type ShowDetailsType = {
+  adult: boolean;
+  backdrop_path: string;
+  created_by: {
+    id: number;
+    credit_id: string;
+    name: string;
+    gender: number;
+    profile_path: null;
+  };
+  first_air_date: string;
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  homepage: string;
+  id: number;
+  in_production: boolean;
+  languages: string[];
+  last_air_date: string;
+  name: string;
+  number_of_episodes: number;
+  number_of_seasons: number;
+  original_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  production_companies: {
+    id: number;
+    logo_path: string;
+    name: string;
+    origin_country: string;
+  }[];
+  production_countries: {
+    iso_3166_1: string;
+    name: string;
+  }[];
+  release_date: string;
+  seasons: {
+    air_data: string;
+    episode_count: number;
+    id: number;
+    name: string;
+    overview: string;
+  };
+  spoken_languages: {
+    english_name: string;
+    iso_639_1: string;
+    name: string;
+  }[];
+  status: string;
+  tagline: string;
+  vote_average: number;
+  vote_count: number;
+};
+
 export default MovieData;
