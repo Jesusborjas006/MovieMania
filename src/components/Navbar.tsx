@@ -1,4 +1,3 @@
-import { type } from "os";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,16 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center mb-10 py-5 px-4 md:px-10 bg-blue-900 text-white">
-      <Link to="/" className="text-2xl font-semibold">
+      <Link
+        to="/"
+        className="text-2xl font-semibold"
+        onClick={() =>
+          setIsActive({
+            moviesNav: true,
+            showsNav: false,
+          })
+        }
+      >
         MovieMania
       </Link>
       <div className="flex space-x-6">
