@@ -31,7 +31,7 @@ const Shows = ({ setSelectedShowID, isLoading, setIsLoading }: ShowProps) => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=0`
+          `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=${pageNum}`
         );
         if (!response.ok) {
           setIsLoading(false);
