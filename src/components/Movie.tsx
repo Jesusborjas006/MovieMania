@@ -8,20 +8,15 @@ type MovieProps = {
   setSelectedMovie: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const Movie = ({
-  id,
-  posterImg,
-  title,
-  setSelectedMovie,
-}: MovieProps) => {
+const Movie = ({ id, posterImg, title, setSelectedMovie }: MovieProps) => {
   return (
     <Link
       to={`/${id}`}
-      className="xl:text-lg cursor-pointer"
+      className="xl:text-lg cursor-pointer rounded-md"
       onClick={() => setSelectedMovie(id)}
     >
       <img
-        className="rounded-md mb-2"
+        className="mb-2 border-2 border-[#121212] rounded-md  hover:border-2 hover:border-white"
         src={`http://image.tmdb.org/t/p/w500/${posterImg}`}
         alt={title}
       />

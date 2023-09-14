@@ -14,7 +14,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className=" text-white">
+    <div className="bg-[#121212] text-white">
       <Navbar />
       <Routes>
         <Route

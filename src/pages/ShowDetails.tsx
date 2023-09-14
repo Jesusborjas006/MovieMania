@@ -38,7 +38,9 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
         <Loading />
       ) : (
         <>
-          <Link to="/shows">Back To Shows</Link>
+          <Link to="/shows" className="border p-2 rounded-md">
+            Back To Shows
+          </Link>
           <div className="flex flex-col md:flex-row mt-16 gap-x-16 items-center">
             <img
               className="w-full sm:w-[80%] md:w-[300px] lg:w-[450px] mb-5"

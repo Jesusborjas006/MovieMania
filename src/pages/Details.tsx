@@ -41,7 +41,9 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
         <Loading />
       ) : (
         <>
-          <Link to="/">Back To Movies</Link>
+          <Link to="/" className="border p-2 rounded-md">
+            Back To Movies
+          </Link>
           <div className="flex flex-col md:flex-row mt-16 gap-x-16 items-center relative">
             <img
               className="w-full sm:w-[80%] md:w-[300px] lg:w-[450px] mb-5"
