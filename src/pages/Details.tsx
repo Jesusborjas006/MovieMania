@@ -61,7 +61,7 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
             />{" "}
             <div>
               <div className="space-y-4">
-                <h3 className="text-2xl text-center font-bold ">
+                <h3 className="text-2xl lg:text-4xl text-center font-bold ">
                   {movieDetails?.title}
                 </h3>
                 {movieDetails?.tagline && (
