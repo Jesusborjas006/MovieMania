@@ -6,6 +6,7 @@ import Details from "../pages/Details";
 import { useState } from "react";
 import MovieData from "../types";
 import ShowDetails from "../pages/ShowDetails";
+import NotFound from "../pages/NotFound";
 
 function App() {
   const [movies, setMovies] = useState<MovieData | []>([]);
@@ -55,6 +56,7 @@ function App() {
             <ShowDetails isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

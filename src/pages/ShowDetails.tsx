@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { ShowDetailsType } from "../types";
 import { Link } from "react-router-dom";
+import ErrorMessage from "../components/ErrorMessage";
 
 type ShowDetailsProps = {
   isLoading: boolean;
@@ -10,6 +11,7 @@ type ShowDetailsProps = {
 
 const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
   const [showDetails, setShowDetails] = useState<ShowDetailsType | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const productionCompanies = showDetails?.production_companies
     .map((company) => {
@@ -21,22 +23,29 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
 
   useEffect(() => {
     const fetchShow = async () => {
-      setIsLoading(true);
-      const response = await fetch(
-        `https://api.themoviedb.org/3/tv/${endpoint}?api_key=${process.env.REACT_APP_API_KEY}`
-      );
-      const data = await response.json();
-      setShowDetails(data);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/tv/${endpoint}?api_key=${process.env.REACT_APP_API_KEY}`
+        );
+        if (!response.ok) {
+          setIsLoading(false);
+          throw new Error("Failed to fetch show details");
+        }
+        const data = await response.json();
+        setShowDetails(data);
+        setIsLoading(false);
+      } catch (err: any) {
+        setError(err.message);
+      }
     };
     fetchShow();
   }, [endpoint, setIsLoading]);
 
   return (
     <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
-      {isLoading ? (
-        <Loading />
-      ) : (
+      {isLoading && <Loading />}
+      {!isLoading && !error && (
         <>
           <Link to="/shows" className="border p-2 rounded-md">
             Back To Shows
@@ -86,6 +95,7 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
           </div>
         </>
       )}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };
