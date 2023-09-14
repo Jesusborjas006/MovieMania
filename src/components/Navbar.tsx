@@ -2,13 +2,6 @@ import { type } from "os";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-type NavbarType = {
-  isActive: {
-    moviesNav: boolean;
-    showsNav: boolean;
-  };
-};
-
 const Navbar = () => {
   const [isActive, setIsActive] = useState({
     moviesNav: true,
