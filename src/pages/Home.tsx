@@ -65,7 +65,7 @@ const Home = ({
           <Pagination pageNum={pageNum} setPageNum={setPageNum} />
         </>
       )}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };

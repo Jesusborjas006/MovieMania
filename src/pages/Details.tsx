@@ -106,7 +106,7 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
           </div>
         </>
       )}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };

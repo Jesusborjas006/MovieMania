@@ -11,7 +11,7 @@ type ShowDetailsProps = {
 
 const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
   const [showDetails, setShowDetails] = useState<ShowDetailsType | null>(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const productionCompanies = showDetails?.production_companies
     .map((company) => {
@@ -26,7 +26,7 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://api.themoviedb.org/3/tv/${endpoint}1?api_key=${process.env.REACT_APP_API_KEY}`
+          `https://api.themoviedb.org/3/tv/${endpoint}?api_key=${process.env.REACT_APP_API_KEY}`
         );
         if (!response.ok) {
           setIsLoading(false);
@@ -95,7 +95,7 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
           </div>
         </>
       )}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };
