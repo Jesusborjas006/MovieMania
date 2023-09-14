@@ -33,12 +33,14 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
   }, [endpoint, setIsLoading]);
 
   return (
-    <>
+    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <Link to="/shows">Go Back</Link>
+          <Link to="/shows" className="border p-2 rounded-md">
+            Back To Shows
+          </Link>
           <div className="flex flex-col md:flex-row mt-16 gap-x-16 items-center">
             <img
               className="w-full sm:w-[80%] md:w-[300px] lg:w-[450px] mb-5"
@@ -63,16 +65,28 @@ const ShowDetails = ({ isLoading, setIsLoading }: ShowDetailsProps) => {
                 <h4 className="text-xl font-semibold text-center md:text-start">
                   More Info
                 </h4>
-                <p>Seasons: {showDetails?.number_of_seasons}</p>
-                <p>Episodes: {showDetails?.number_of_episodes}</p>
-                <p>Status: {showDetails?.status}</p>
-                <p>Production Companies: {productionCompanies}</p>
+                <p>
+                  <span className="text-blue-500 font-bold">Seasons:</span>{" "}
+                  {showDetails?.number_of_seasons}
+                </p>
+                <p>
+                  <span className="text-blue-500 font-bold">Episodes:</span>{" "}
+                  {showDetails?.number_of_episodes}
+                </p>
+                <p>
+                  <span className="text-blue-500 font-bold">Status:</span>{" "}
+                  {showDetails?.status}
+                </p>
+                <p>
+                  <span className="text-blue-500 font-bold">Budget:</span>{" "}
+                  Production Companies: {productionCompanies}
+                </p>
               </div>
             </div>
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

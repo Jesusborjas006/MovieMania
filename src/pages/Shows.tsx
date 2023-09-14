@@ -38,7 +38,7 @@ const Shows = ({ setSelectedShowID, isLoading, setIsLoading }: ShowProps) => {
   }, [pageNum, setIsLoading]);
 
   return (
-    <>
+    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
       {isLoading ? (
         <Loading />
       ) : (
@@ -49,7 +49,7 @@ const Shows = ({ setSelectedShowID, isLoading, setIsLoading }: ShowProps) => {
           <Pagination pageNum={pageNum} setPageNum={setPageNum} />
         </>
       )}
-    </>
+    </div>
   );
 };
 

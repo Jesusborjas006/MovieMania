@@ -16,7 +16,7 @@ const Show = ({ id, name, posterImg, setSelectedShowID }: ShowProps) => {
       onClick={() => setSelectedShowID(id)}
     >
       <img
-        className="rounded-md mb-2"
+        className="rounded-md mb-2 border-2 border-[#121212] hover:border-2 hover:border-white"
         src={`http://image.tmdb.org/t/p/w500/${posterImg}`}
         alt={name}
       />

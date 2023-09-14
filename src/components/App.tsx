@@ -14,7 +14,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto ">
+    <div className="bg-[#121212] text-white">
       <Navbar />
       <Routes>
         <Route
@@ -52,10 +52,7 @@ function App() {
         <Route
           path="/shows/:id"
           element={
-            <ShowDetails
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
+            <ShowDetails isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
       </Routes>

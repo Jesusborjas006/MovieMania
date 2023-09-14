@@ -36,12 +36,14 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
   }, [selectedMovie, endpoint, setIsLoading]);
 
   return (
-    <>
+    <div className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <Link to="/">Go Back</Link>
+          <Link to="/" className="border p-2 rounded-md">
+            Back To Movies
+          </Link>
           <div className="flex flex-col md:flex-row mt-16 gap-x-16 items-center relative">
             <img
               className="w-full sm:w-[80%] md:w-[300px] lg:w-[450px] mb-5"
@@ -65,26 +67,37 @@ const Details = ({ selectedMovie, isLoading, setIsLoading }: DetailsProps) => {
                   More Info
                 </h4>
                 <p>
-                  Budget:
+                  <span className="text-blue-500 font-bold">Budget:</span>
                   {movieDetails?.budget
                     ? ` $${movieDetails?.budget.toLocaleString()}`
                     : " Information Not Found"}
                 </p>
                 <p>
-                  Revenue:
+                  <span className="text-blue-500 font-bold">Revenue:</span>
                   {movieDetails?.revenue
                     ? ` $${movieDetails?.revenue.toLocaleString()}`
                     : " Information Not Found"}
                 </p>
-                <p>Runtime: {movieDetails?.runtime} minutes</p>
-                <p>Status: {movieDetails?.status}</p>
-                <p>Production Companies: {productionCompanies}</p>
+                <p>
+                  <span className="text-blue-500 font-bold">Runtime: </span>
+                  {movieDetails?.runtime} minutes
+                </p>
+                <p>
+                  <span className="text-blue-500 font-bold">Status:</span>{" "}
+                  {movieDetails?.status}
+                </p>
+                <p>
+                  <span className="text-blue-500 font-bold">
+                    Production Companies:
+                  </span>{" "}
+                  {productionCompanies}
+                </p>
               </div>
             </div>
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 
