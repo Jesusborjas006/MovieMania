@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
+import SearchContentContainer from "../components/SearchContentContainer";
 
-const Search = () => {
-  const [searchedMovies, setSearchedMovies] = useState({});
-  console.log(searchedMovies);
+type SeachProps = {
+  setSelectedMovie: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const Search = ({ setSelectedMovie }: SeachProps) => {
+  const [query, setQuery] = useState("");
+  const [searchedMovies, setSearchedMovies] = useState([]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=john%20wick`,
+        `https://api.themoviedb.org/3/search/movie?query=${query}`,
         {
           method: "GET",
           headers: {
@@ -17,17 +26,25 @@ const Search = () => {
         }
       );
       const data = await response.json();
-      setSearchedMovies(data);
+      setSearchedMovies(data.results);
     };
     fetchData();
-  }, []);
+  }, [query]);
   return (
-    <section>
-      <h2>Search</h2>
-      <form>
-        <input type="text" placeholder="Enter title..."/>
-        <button>Submit</button>
+    <section className="max-w-[1650px] py-5 px-4 md:px-10 mx-auto">
+      <form className="text-center mb-12">
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="Search by title..."
+          className="text-black w-[400px] rounded-md py-1 px-2"
+        />
       </form>
+      <SearchContentContainer
+        searchedMovies={searchedMovies}
+        query={query}
+        setSelectedMovie={setSelectedMovie}
+      />
     </section>
   );
 };

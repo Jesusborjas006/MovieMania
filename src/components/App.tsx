@@ -57,7 +57,10 @@ function App() {
             <ShowDetails isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
-        <Route path="/search" element={<Search />} />
+        <Route
+          path="/search"
+          element={<Search setSelectedMovie={setSelectedMovie} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
