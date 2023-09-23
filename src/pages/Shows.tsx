@@ -53,13 +53,14 @@ const Shows = ({ setSelectedShowID, isLoading, setIsLoading }: ShowProps) => {
       {isLoading && <Loading />}
       {!isLoading && !error && (
         <>
+          <h2 className="text-5xl font-semibold mb-8">Shows</h2>
           <main className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
             {showElements}
           </main>
           <Pagination pageNum={pageNum} setPageNum={setPageNum} />
         </>
       )}
-      {error && <ErrorMessage message={error}/>}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };

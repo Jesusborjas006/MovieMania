@@ -10,7 +10,6 @@ import NotFound from "../pages/NotFound";
 import Search from "../pages/Search";
 
 function App() {
-  const [movies, setMovies] = useState<MovieData | []>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
   const [, setSelectedShowID] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,8 +22,6 @@ function App() {
           path="/"
           element={
             <Home
-              movies={movies}
-              setMovies={setMovies}
               setSelectedMovie={setSelectedMovie}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
