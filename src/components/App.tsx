@@ -7,6 +7,7 @@ import { useState } from "react";
 import MovieData from "../types";
 import ShowDetails from "../pages/ShowDetails";
 import NotFound from "../pages/NotFound";
+import Search from "../pages/Search";
 
 function App() {
   const [movies, setMovies] = useState<MovieData | []>([]);
@@ -56,6 +57,7 @@ function App() {
             <ShowDetails isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         />
+        <Route path="/search" element={<Search />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -54,6 +54,7 @@ const Navbar = () => {
         >
           Shows
         </Link>
+        <Link to="/search">Search</Link>
       </div>
     </nav>
   );
