@@ -7,13 +7,16 @@ const Navbar = () => {
         MovieMania
       </Link>
       <div className="flex space-x-6">
-        <Link to="/" className="md:text-lg">
+        <Link
+          to="/"
+          className="md:text-lg border-b-2 border-blue-900 hover:border-b-2 hover:border-white transition-all"
+        >
           Movies
         </Link>
-        <Link to="/shows" className="md:text-lg">
+        <Link to="/shows" className="md:text-lg hover:border-b-2">
           Shows
         </Link>
-        <Link to="/search" className="md:text-lg">
+        <Link to="/search" className="md:text-lg hover:border-b-2">
           Search
         </Link>
       </div>
