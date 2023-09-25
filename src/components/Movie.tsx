@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import imgNotFound from "../assets/not-found-2.png";
 
 type MovieProps = {
   key: number;
@@ -22,7 +23,11 @@ const Movie = ({ id, posterImg, title, setSelectedMovie }: MovieProps) => {
           alt={title}
         />
       ) : (
-        "No Image"
+        <img
+          className="h-[85%] object-cover mb-2 border-2 border-[#121212] rounded-md"
+          src={imgNotFound}
+          alt="not found"
+        />
       )}
 
       <h2>{title}</h2>

@@ -56,7 +56,12 @@ function App() {
         />
         <Route
           path="/search"
-          element={<Search setSelectedMovie={setSelectedMovie} />}
+          element={
+            <Search
+              setSelectedMovie={setSelectedMovie}
+              setSelectedShowID={setSelectedShowID}
+            />
+          }
         />
         <Route path="*" element={<NotFound />} />
       </Routes>

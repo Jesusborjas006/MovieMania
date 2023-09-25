@@ -8,10 +8,12 @@ type ShowProps = {
   setSelectedShowID: React.Dispatch<React.SetStateAction<number>>;
 };
 
+const endpoint = window.location.pathname;
+
 const Show = ({ id, name, posterImg, setSelectedShowID }: ShowProps) => {
   return (
     <Link
-      to={`${id}`}
+      to={endpoint === "/search" ? `${id}` : `/shows/${id}`}
       className="xl:text-lg"
       onClick={() => setSelectedShowID(id)}
     >
