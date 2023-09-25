@@ -4,7 +4,6 @@ import Shows from "../pages/Shows";
 import Navbar from "./Navbar";
 import Details from "../pages/Details";
 import { useState } from "react";
-import MovieData from "../types";
 import ShowDetails from "../pages/ShowDetails";
 import NotFound from "../pages/NotFound";
 import Search from "../pages/Search";
