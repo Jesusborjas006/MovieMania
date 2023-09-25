@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# [MovieMania](https://movie-mania-nu.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Abstract:
+MovieMania is a react application that allows users to view a variety of movies or shows, and be able to see specific details such as Ratings, Description, Budget, Revenue, and Production Companies. Pagination feature was implemented at the bottom of the application to render a certain amount of data at a time for performance. A search page is created so user's can easily find a specific movie/show they're interested in.
 
-## Available Scripts
+## Contributors:
+- Jesus Borjas [LinkedIn](https://www.linkedin.com/in/jesus-borjas-6589b920a/), [Github](https://github.com/jesusborjas006)
 
-In the project directory, you can run:
+## Installation Instructions:
+1. Fork and clone [this repo](https://github.com/Jesusborjas006/MovieMania).
+1. Copy the SSH key from the green "Code" button.
+1. In your terminal, use the command `git clone git@github.com:[https://github.com/Jesusborjas006/MovieMania]`.
+1. Run `npm install`.
+1. Do NOT run `npm audit fix --force` when prompted.
+1. Open the repo in your text editor to make any changes or inspect code.
+1. Run `npm start` in your terminal.
+1. Copy and paste the generated `localServer` address that your terminal provides into your browser address bar.
 
-### `npm start`
+## Preview of App:
+<img width="1506" alt="Screenshot 2023-09-25 at 3 20 58 PM" src="https://github.com/Jesusborjas006/MovieMania/assets/111095858/f6ef80d0-5c55-4f9f-bcfd-ff9ec2c254fb">
+<img width="1506" alt="Screenshot 2023-09-25 at 3 21 36 PM" src="https://github.com/Jesusborjas006/MovieMania/assets/111095858/a44d28f1-4ba0-42c0-b7a9-0dde1fa11769">
+<img width="305" alt="Screenshot 2023-09-25 at 3 23 23 PM" src="https://github.com/Jesusborjas006/MovieMania/assets/111095858/fe49b770-af6f-4e73-be89-a3615f743b3f">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used: 
+  - React 
+  - Router
+  - React Icons
+  - Typescript
+  - Tailwind CSS
