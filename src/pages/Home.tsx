@@ -6,20 +6,13 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 
 type HomeProps = {
-  movies: MovieData;
-  setMovies: React.Dispatch<React.SetStateAction<MovieData | []>>;
   setSelectedMovie: React.Dispatch<React.SetStateAction<number>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Home = ({
-  movies,
-  setMovies,
-  setSelectedMovie,
-  isLoading,
-  setIsLoading,
-}: HomeProps) => {
+const Home = ({ setSelectedMovie, isLoading, setIsLoading }: HomeProps) => {
+  const [movies, setMovies] = useState<MovieData | []>([]);
   const [pageNum, setPageNum] = useState(1);
   const [error, setError] = useState("");
 
@@ -59,6 +52,7 @@ const Home = ({
       {isLoading && <Loading />}
       {!isLoading && !error && (
         <>
+          <h2 className="text-5xl font-semibold mb-8">Movies</h2>
           <main className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
             {movieElements}
           </main>
